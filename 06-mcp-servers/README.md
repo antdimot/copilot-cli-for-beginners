@@ -893,8 +893,8 @@ Beyond `/mcp show`, there are several other commands for managing your MCP serve
 | `/mcp show` | Show all configured MCP servers and their status |
 | `/mcp add` | Interactive setup for adding a new server |
 | `/mcp edit <server-name>` | Edit an existing server configuration |
-| `/mcp enable <server-name>` | Enable a disabled server |
-| `/mcp disable <server-name>` | Temporarily disable a server |
+| `/mcp enable <server-name>` | Enable a disabled server (persists across sessions) |
+| `/mcp disable <server-name>` | Disable a server (persists across sessions — use `/mcp enable` to re-enable it) |
 | `/mcp delete <server-name>` | Remove a server permanently |
 | `/mcp auth <server-name>` | Re-authenticate with an MCP server that uses OAuth (e.g., after switching accounts) |
 
