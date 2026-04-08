@@ -267,7 +267,7 @@ Build your own skills from SKILL.md files.
 
 ## Skill Locations
 
-Skills are stored in `.github/skills/` (project-specific) or `~/.copilot/skills/` (user level).
+Skills are stored in `.github/skills/` (project-specific), `~/.copilot/skills/` (user level), or bundled with the CLI itself (built-in).
 
 ### How Copilot Finds Skills
 
@@ -277,6 +277,9 @@ Copilot automatically scans these locations for skills:
 |----------|-------|
 | `.github/skills/` | Project-specific (shared with team via git) |
 | `~/.copilot/skills/` | User-specific (your personal skills) |
+| Built-in (bundled with the CLI) | Available everywhere, no setup needed |
+
+> 💡 **Built-in skills** are included directly in the Copilot CLI and are always available without any configuration. For example, a built-in skill called `customizing-copilot-cloud-agents-environment` comes with the CLI and provides guidance on customizing the Copilot cloud agent environment. You can see all skills — including built-in ones — by running `/skills list` inside Copilot.
 
 ### Skill Structure
 

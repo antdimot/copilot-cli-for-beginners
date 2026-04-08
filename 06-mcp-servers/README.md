@@ -13,7 +13,7 @@ That's what MCP (Model Context Protocol) does. It's a way to connect Copilot to 
 By the end of this chapter, you'll be able to:
 
 - Understand what MCP is and why it matters
-- Manage MCP servers using `/mcp` commands
+- Manage MCP servers using `/mcp` commands or the `copilot mcp` CLI command
 - Configure MCP servers for GitHub, filesystem, and documentation
 - Use MCP-powered workflows with the book app project
 - Know when and how to build a custom MCP server (optional)
@@ -893,12 +893,14 @@ Beyond `/mcp show`, there are several other commands for managing your MCP serve
 | `/mcp show` | Show all configured MCP servers and their status |
 | `/mcp add` | Interactive setup for adding a new server |
 | `/mcp edit <server-name>` | Edit an existing server configuration |
-| `/mcp enable <server-name>` | Enable a disabled server |
-| `/mcp disable <server-name>` | Temporarily disable a server |
+| `/mcp enable <server-name>` | Enable a disabled server (persists across sessions) |
+| `/mcp disable <server-name>` | Temporarily disable a server (persists across sessions) |
 | `/mcp delete <server-name>` | Remove a server permanently |
 | `/mcp auth <server-name>` | Re-authenticate with an MCP server that uses OAuth (e.g., after switching accounts) |
 
 For most of this course, `/mcp show` is all you need. The other commands become useful as you manage more servers over time.
+
+> 💡 **Tip**: You can also manage MCP servers from the terminal *before* starting a Copilot session using the `copilot mcp` command. For example, `copilot mcp show` lists all configured servers — no need to open a chat session first. This is handy in scripts or CI environments.
 
 </details>
 
