@@ -59,10 +59,11 @@ If Copilot returns real commit data, you've just seen MCP in action. That's the 
 
 ---
 
-## The `/mcp show` Command
+## Checking Your MCP Servers
 
-Use `/mcp show` to see which MCP servers are configured and whether they're enabled:
+There are two ways to check and manage your MCP servers:
 
+**Inside a Copilot session** (using slash commands):
 ```bash
 copilot
 
@@ -73,9 +74,16 @@ MCP Servers:
 ✓ filesystem (enabled) - File system access
 ```
 
+**From the terminal** (without starting a session — new in v1.0.21):
+```bash
+copilot mcp show
+```
+
+Both do the same thing. The `copilot mcp` terminal command is handy when you want to check or change your MCP setup quickly, without opening an interactive session first.
+
 > 💡 **Only seeing the GitHub server?** That's expected! If you haven't added any additional MCP servers yet, GitHub is the only one listed. You'll add more in the next section.
 
-> 📚 **Want to see all `/mcp` commands?** There are additional commands for adding, editing, enabling, and deleting servers. See the [full command reference](#-additional-mcp-commands) at the end of this chapter.
+> 📚 **Want to see all commands?** There are additional commands for adding, editing, enabling, and deleting servers. See the [full command reference](#-additional-mcp-commands) at the end of this chapter.
 
 <details>
 <summary>🎬 See it in action!</summary>
@@ -841,7 +849,7 @@ Ready to go deeper? Follow the [Custom MCP Server Guide](mcp-custom-server.md) t
 |---------|--------------|-----|
 | Not knowing GitHub MCP is built-in | Trying to install/configure it manually | GitHub MCP is included by default. Just try: "List the recent commits in this repo" |
 | Looking for config in wrong location | Can't find or edit MCP settings | User-level config is in `~/.copilot/mcp-config.json`, project-level is `.vscode/mcp.json` |
-| Invalid JSON in config file | MCP servers fail to load | Use `/mcp show` to check configuration; validate JSON syntax |
+| Invalid JSON in config file | MCP servers fail to load | Use `copilot mcp show` or `/mcp show` to check configuration; validate JSON syntax |
 | Forgetting to authenticate MCP servers | "Authentication failed" errors | Some MCPs need separate auth. Check each server's requirements |
 
 ### Troubleshooting
@@ -883,22 +891,24 @@ If a server is disabled, see the [additional `/mcp` commands](#-additional-mcp-c
 ---
 
 <details>
-<summary>📚 <strong>Additional <code>/mcp</code> Commands</strong> (click to expand)</summary>
+<summary>📚 <strong>Additional MCP Commands</strong> (click to expand)</summary>
 <a id="-additional-mcp-commands"></a>
 
-Beyond `/mcp show`, there are several other commands for managing your MCP servers:
+There are two ways to run MCP management commands: **inside a Copilot session** (slash commands) or **from the terminal** (using `copilot mcp`). Both sets of commands do the same thing — use whichever is more convenient.
 
-| Command | What It Does |
-|---------|--------------|
-| `/mcp show` | Show all configured MCP servers and their status |
-| `/mcp add` | Interactive setup for adding a new server |
-| `/mcp edit <server-name>` | Edit an existing server configuration |
-| `/mcp enable <server-name>` | Enable a disabled server |
-| `/mcp disable <server-name>` | Temporarily disable a server |
-| `/mcp delete <server-name>` | Remove a server permanently |
-| `/mcp auth <server-name>` | Re-authenticate with an MCP server that uses OAuth (e.g., after switching accounts) |
+| Action | Inside a session | From the terminal |
+|--------|-----------------|-------------------|
+| Show all servers | `/mcp show` | `copilot mcp show` |
+| Add a new server | `/mcp add` | `copilot mcp add` |
+| Edit a server config | `/mcp edit <name>` | `copilot mcp edit <name>` |
+| Enable a server | `/mcp enable <name>` | `copilot mcp enable <name>` |
+| Disable a server | `/mcp disable <name>` | `copilot mcp disable <name>` |
+| Remove a server | `/mcp delete <name>` | `copilot mcp delete <name>` |
+| Re-authenticate (OAuth) | `/mcp auth <name>` | `copilot mcp auth <name>` |
 
-For most of this course, `/mcp show` is all you need. The other commands become useful as you manage more servers over time.
+> 💡 **Tip**: Use `copilot mcp show` from the terminal when you're setting things up for the first time. Use `/mcp show` inside a session when you're mid-conversation and want to check server status without leaving.
+
+For most of this course, `copilot mcp show` (or `/mcp show` inside a session) is all you need. The other commands become useful as you manage more servers over time.
 
 </details>
 
@@ -912,7 +922,7 @@ For most of this course, `/mcp show` is all you need. The other commands become 
 2. **GitHub MCP is built-in** - no configuration needed, just `/login`
 3. **Filesystem and Context7** are configured via `~/.copilot/mcp-config.json`
 4. **Multi-server workflows** combine data from multiple sources in a single session
-5. **Check server status** with `/mcp show` (additional commands available for managing servers)
+5. **Check server status** with `copilot mcp show` (terminal) or `/mcp show` (inside a session)
 6. **Custom servers** let you connect any API (optional, covered in the appendix guide)
 
 > 📋 **Quick Reference**: See the [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference) for a complete list of commands and shortcuts.
